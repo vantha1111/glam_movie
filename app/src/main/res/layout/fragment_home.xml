@@ -1,17 +1,152 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Home"
-    android:background="@color/teal_700">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Fragment.Home"
+    >
 
-    <!-- TODO: Update blank fragment layout -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+
+    <LinearLayout
+        android:id="@+id/linear_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_30sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tv_home"
+            android:layout_weight="3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Home"
+            android:textColor="@color/teal_700"
+            android:textSize="@dimen/_25ssp"
+            android:textStyle="bold"
+            />
+
+        <ImageView
+            android:id="@+id/img_search"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/baseline_search_24" />
+
+    </LinearLayout>
+
     <TextView
+        android:id="@+id/tv_like_to_see"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="home_fragment"
-        android:textSize="26dp"
-        android:layout_gravity="center"/>
+        android:layout_marginTop="@dimen/_10sdp"
+        android:text="What would you like to watch"
+        android:textColor="@color/cardview_dark_background"
+        android:textStyle="bold"
+        android:textSize="@dimen/_17ssp"
+        app:layout_constraintTop_toBottomOf="@+id/linear_header"
+        app:layout_constraintStart_toStartOf="@+id/linear_header"/>
 
-</FrameLayout>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/random_movie_card"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_160sdp"
+        android:layout_marginStart="@dimen/_25sdp"
+        android:layout_marginEnd="@dimen/_25sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        app:cardCornerRadius="@dimen/_10sdp"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_like_to_see">
+
+        <ImageView
+            android:id="@+id/movie_img_random"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/purple_200"/>
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/tittle_trend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_18sdp"
+        android:text="Trending Movies"
+        android:textSize="@dimen/_17ssp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/tv_like_to_see"
+        app:layout_constraintTop_toBottomOf="@+id/random_movie_card" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/trend_movie_card"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_90sdp"
+        android:layout_marginStart="@dimen/_25sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tittle_trend"/>
+
+    <TextView
+        android:id="@+id/new_movie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_18sdp"
+        android:text="New Movie"
+        android:textSize="@dimen/_17ssp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/tv_like_to_see"
+        app:layout_constraintTop_toBottomOf="@+id/trend_movie_card"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/new_list"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_90sdp"
+        android:layout_marginStart="@dimen/_25sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/new_movie"/>
+
+    <TextView
+        android:id="@+id/tv_series"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_18sdp"
+        android:text="Trending Movies"
+        android:textSize="@dimen/_17ssp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/tv_like_to_see"
+        app:layout_constraintTop_toBottomOf="@+id/new_list"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/tv_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_25sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_series"/>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,6 +3,7 @@ package kh.edu.rupp.ite.movieapp.Activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
+import kh.edu.rupp.ite.movieapp.Fragment.Download
 import kh.edu.rupp.ite.movieapp.Fragment.Home
 import kh.edu.rupp.ite.movieapp.Fragment.Profile
 import kh.edu.rupp.ite.movieapp.Fragment.Search
@@ -26,6 +27,8 @@ class MainActivity : AppCompatActivity() {
                 R.id.home -> replaceFragment(Home())
                 R.id.profile -> replaceFragment(Profile())
                 R.id.search -> replaceFragment(Search())
+                R.id.download -> replaceFragment(Download())
+
 
                 else -> {
 

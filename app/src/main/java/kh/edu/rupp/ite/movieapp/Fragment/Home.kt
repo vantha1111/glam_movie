@@ -7,14 +7,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Adapter
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.Recycler
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
-import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
+import kh.edu.rupp.ite.movieapp.Adapter.MainAdapter
 import kh.edu.rupp.ite.movieapp.Adapter.SliderAdapter
+import kh.edu.rupp.ite.movieapp.Model.MainModel
+import kh.edu.rupp.ite.movieapp.Model.MovieModel
 import kh.edu.rupp.ite.movieapp.R
 import kh.edu.rupp.ite.movieapp.databinding.FragmentHomeBinding
 import kotlin.math.abs
@@ -25,6 +26,10 @@ class Home : Fragment(R.layout.fragment_home) {
     private lateinit var handler: Handler
     private lateinit var imageList:ArrayList<Int>
     private lateinit var adapter: SliderAdapter
+
+    private var mainMovieRecycler:RecyclerView? = null
+    private var mainAdapter: MainAdapter? = null
+
 
     private var _binding: FragmentHomeBinding? =null
     private val binding get() = _binding!!
@@ -47,6 +52,53 @@ class Home : Fragment(R.layout.fragment_home) {
                 handler.postDelayed(runnable , 2000)
             }
         })
+
+        val movieModel1: MutableList<MovieModel> = ArrayList()
+        movieModel1.add(MovieModel(1,R.drawable.jum))
+        movieModel1.add(MovieModel(1,R.drawable.jum))
+        movieModel1.add(MovieModel(1,R.drawable.jum))
+        movieModel1.add(MovieModel(1,R.drawable.jum))
+        movieModel1.add(MovieModel(1,R.drawable.jum))
+        movieModel1.add(MovieModel(1,R.drawable.jum))
+        movieModel1.add(MovieModel(1,R.drawable.jum))
+
+        val movieModel2: MutableList<MovieModel> = ArrayList()
+        movieModel2.add(MovieModel(1,R.drawable.jum))
+        movieModel2.add(MovieModel(1,R.drawable.jum))
+        movieModel2.add(MovieModel(1,R.drawable.jum))
+        movieModel2.add(MovieModel(1,R.drawable.jum))
+        movieModel2.add(MovieModel(1,R.drawable.jum))
+        movieModel2.add(MovieModel(1,R.drawable.jum))
+        movieModel2.add(MovieModel(1,R.drawable.jum))
+
+        val movieModel3: MutableList<MovieModel> = ArrayList()
+        movieModel3.add(MovieModel(1,R.drawable.jum))
+        movieModel3.add(MovieModel(1,R.drawable.jum))
+        movieModel3.add(MovieModel(1,R.drawable.jum))
+        movieModel3.add(MovieModel(1,R.drawable.jum))
+        movieModel3.add(MovieModel(1,R.drawable.jum))
+        movieModel3.add(MovieModel(1,R.drawable.jum))
+        movieModel3.add(MovieModel(1,R.drawable.jum))
+
+        val movieModel4: MutableList<MovieModel> = ArrayList()
+        movieModel4.add(MovieModel(1,R.drawable.jum))
+        movieModel4.add(MovieModel(1,R.drawable.jum))
+        movieModel4.add(MovieModel(1,R.drawable.jum))
+        movieModel4.add(MovieModel(1,R.drawable.jum))
+        movieModel4.add(MovieModel(1,R.drawable.jum))
+        movieModel4.add(MovieModel(1,R.drawable.jum))
+        movieModel4.add(MovieModel(1,R.drawable.jum))
+
+
+
+        val mainModel: MutableList<MainModel> = ArrayList()
+        mainModel.add(MainModel("New Releases", movieModel1))
+        mainModel.add(MainModel("Popular movies", movieModel2))
+        mainModel.add(MainModel("Coming Soon", movieModel3))
+        mainModel.add(MainModel("Hollywood", movieModel4))
+
+        setMainMovieRecycler(mainModel)
+
 
         return binding.root
     }
@@ -95,5 +147,14 @@ class Home : Fragment(R.layout.fragment_home) {
         viewPager2.clipChildren = false
         viewPager2.getChildAt(0).overScrollMode = RecyclerView.OVER_SCROLL_NEVER
     }
+
+    private fun setMainMovieRecycler(mainModel: List<MainModel>){
+        mainMovieRecycler = binding.MovieImg
+        val layoutManager:RecyclerView.LayoutManager = LinearLayoutManager (context )
+        mainMovieRecycler!!.layoutManager = layoutManager
+        mainAdapter = MainAdapter(requireContext(), mainModel)
+        mainMovieRecycler!!.adapter = mainAdapter
+    }
+
 
 }

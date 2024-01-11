@@ -24,7 +24,7 @@ class ListAdapter (private val context: Context, private val movieModel: List<Mo
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListItemViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(kh.edu.rupp.ite.movieapp.R.layout.movie_list, parent, false)
-        return ListAdapter.ListItemViewHolder(view)
+        return ListItemViewHolder(view)
     }
 
     override fun getItemCount(): Int {

@@ -7,6 +7,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.ImageView
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
@@ -18,9 +21,11 @@ import kh.edu.rupp.ite.movieapp.Model.MainModel
 import kh.edu.rupp.ite.movieapp.Model.MovieModel
 import kh.edu.rupp.ite.movieapp.R
 import kh.edu.rupp.ite.movieapp.databinding.FragmentHomeBinding
+import org.w3c.dom.Text
 import kotlin.math.abs
 
 class Home : Fragment(R.layout.fragment_home) {
+
 
     private lateinit var viewPager2: ViewPager2
     private lateinit var handler: Handler
@@ -52,6 +57,8 @@ class Home : Fragment(R.layout.fragment_home) {
                 handler.postDelayed(runnable , 2000)
             }
         })
+
+
 
         val movieModel1: MutableList<MovieModel> = ArrayList()
         movieModel1.add(MovieModel(1,R.drawable.jum))
@@ -102,6 +109,7 @@ class Home : Fragment(R.layout.fragment_home) {
 
         return binding.root
     }
+
 
     override fun onPause() {
         super.onPause()

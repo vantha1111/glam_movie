@@ -43,6 +43,7 @@
             android:id="@+id/img_search"
             android:layout_width="@dimen/_30sdp"
             android:layout_height="match_parent"
+            android:background="@drawable/btn_background"
             android:scaleType="centerCrop"
             android:src="@drawable/baseline_search_24" />
 

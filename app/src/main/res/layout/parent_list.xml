@@ -28,9 +28,10 @@
         app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/imageView4"
+            android:id="@+id/btn_Image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:scaleType="centerCrop"
             tools:srcCompat="@drawable/baseline_arrow_forward_24"
             />
 

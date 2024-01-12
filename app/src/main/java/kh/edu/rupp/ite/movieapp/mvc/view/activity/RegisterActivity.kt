@@ -23,7 +23,7 @@ class RegisterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         registerBinding = RegisterScreenBinding.inflate(layoutInflater)
         setContentView(registerBinding.root)
-
+        getSupportActionBar()?.setDisplayShowTitleEnabled(false);
         registerBinding.btSignIn.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)

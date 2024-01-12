@@ -27,8 +27,10 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         loginBinding = LogInScreenBinding.inflate(layoutInflater)
         setContentView(loginBinding.root)
+        getSupportActionBar()?.setDisplayShowTitleEnabled(false);
 
         loginBinding.btSignUp.setOnClickListener {
             val intent = Intent(this, RegisterActivity::class.java)

@@ -20,7 +20,9 @@ import kh.edu.rupp.ite.movieapp.Adapter.SliderAdapter
 import kh.edu.rupp.ite.movieapp.Model.MainModel
 import kh.edu.rupp.ite.movieapp.Model.MovieModel
 import kh.edu.rupp.ite.movieapp.R
+import kh.edu.rupp.ite.movieapp.client.ServiceClient
 import kh.edu.rupp.ite.movieapp.databinding.FragmentHomeBinding
+import kh.edu.rupp.ite.movieapp.service.ApiService
 import org.w3c.dom.Text
 import kotlin.math.abs
 
@@ -57,8 +59,6 @@ class Home : Fragment(R.layout.fragment_home) {
                 handler.postDelayed(runnable , 2000)
             }
         })
-
-
 
         val movieModel1: MutableList<MovieModel> = ArrayList()
         movieModel1.add(MovieModel(1,R.drawable.jum))
@@ -107,8 +107,10 @@ class Home : Fragment(R.layout.fragment_home) {
         setMainMovieRecycler(mainModel)
 
 
+
         return binding.root
     }
+
 
 
     override fun onPause() {

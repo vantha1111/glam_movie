@@ -4,3 +4,5 @@ data class MainModel(
     val movieTitle: String,
     val movieModel: List<MovieModel>
 )
+
+

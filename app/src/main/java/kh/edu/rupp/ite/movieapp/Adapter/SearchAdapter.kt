@@ -6,17 +6,24 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import kh.edu.rupp.ite.movieapp.Model.SearchModel
 import kh.edu.rupp.ite.movieapp.R
 
-class SearchAdapter(private val context: Context, private val searchModel: List<SearchModel>, private val clickListener: OnClickListener) : RecyclerView.Adapter<SearchAdapter.SearchViewHolder>() {
+class SearchAdapter(private val context: Context, private var searchModel: List<SearchModel>, private val clickListener: OnClickListener)
+    : RecyclerView.Adapter<SearchAdapter.SearchViewHolder>() {
 
 
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SearchViewHolder {
         return SearchViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.search_item,parent,false))
+    }
+
+    fun onApplySearch (searchList: List<SearchModel>){
+        this.searchModel = searchList
+        notifyDataSetChanged()
     }
 
     override fun getItemCount(): Int {
@@ -30,7 +37,7 @@ class SearchAdapter(private val context: Context, private val searchModel: List<
         holder.desc.text = searchModel.desc
         holder.image.setImageResource(searchModel.image)
 
-        holder.itemView.setOnClickListener{
+        holder.itemView.setOnClickListener {
             clickListener.ClickedItem(searchModel)
         }
     }
@@ -52,5 +59,6 @@ class SearchAdapter(private val context: Context, private val searchModel: List<
 
     interface OnClickListener {
         fun ClickedItem(searchModel: SearchModel)
+
     }
 }

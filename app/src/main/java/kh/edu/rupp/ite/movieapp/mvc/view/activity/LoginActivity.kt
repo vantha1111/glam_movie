@@ -30,10 +30,10 @@ class LoginActivity : AppCompatActivity() {
         loginBinding = LogInScreenBinding.inflate(layoutInflater)
         setContentView(loginBinding.root)
 
-//        loginBinding.btSignup.setOnClickListener {
-//            val intent = Intent(this, RegisterActivity::class.java)
-//            startActivity(intent)
-//        }
+        loginBinding.btSignUp.setOnClickListener {
+            val intent = Intent(this, RegisterActivity::class.java)
+            startActivity(intent)
+        }
 
         // Handle login button click
         loginBinding.btnLogin.setOnClickListener {
@@ -52,6 +52,7 @@ class LoginActivity : AppCompatActivity() {
                 apiServices.login(loginModel).enqueue(object : Callback<ResponseBody> {
                     override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
                         if (response.isSuccessful) {
+
                             val responseBody = response.body()?.string()
                             // Get response body as a string
                             Log.d("LoginActivity", "Response body: ${responseBody.toString()}")
@@ -60,6 +61,7 @@ class LoginActivity : AppCompatActivity() {
                                 val status = jsonResponse.getBoolean("status")
 
                                 if (status == true) {
+                                    Toast.makeText(this@LoginActivity, "Login successful", Toast.LENGTH_SHORT).show()
                                     // Login successful
 //                                    val access_Token = jsonResponse.getString("access_token")
 //                                    accessToken = access_Token

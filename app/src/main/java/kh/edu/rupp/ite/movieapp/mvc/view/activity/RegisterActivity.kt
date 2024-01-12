@@ -24,7 +24,7 @@ class RegisterActivity : AppCompatActivity() {
         registerBinding = RegisterScreenBinding.inflate(layoutInflater)
         setContentView(registerBinding.root)
 
-        registerBinding.btnRegister.setOnClickListener {
+        registerBinding.btSignIn.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
@@ -39,7 +39,7 @@ class RegisterActivity : AppCompatActivity() {
 
             val registerModel = RegisterModel(name, email, password)
             val httpClient = Retrofit.Builder()
-                .baseUrl("https://ebooks-store-cambo.000webhostapp.com/")
+                .baseUrl("http://192.168.100.13:8000/api/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
             val apiServices: ApiServices = httpClient.create(ApiServices::class.java)
@@ -47,7 +47,7 @@ class RegisterActivity : AppCompatActivity() {
                 override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
                     if (response.isSuccessful) {
                         // Handle successful registration
-                        //Toast.makeText(this@RegisterActivity, "Registration successful", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@RegisterActivity, "Registration successful", Toast.LENGTH_SHORT).show()
                         val intent = Intent(this@RegisterActivity, MainActivity::class.java)
                         startActivity(intent)
                     } else {

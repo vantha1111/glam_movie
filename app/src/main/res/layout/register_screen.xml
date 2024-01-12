@@ -6,9 +6,9 @@
 
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_launcher_foreground"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/app_logo"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"/>
 
@@ -60,8 +60,23 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/btnRegister"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:text="Already have an account? Login here"
-        android:textColor="#0000FF"/>
+        android:layout_marginTop="23dp"
+        android:text="Already have an account?"
+        android:textColor="#0000FF" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btSignIn"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnRegister"
+        android:layout_marginStart="-1dp"
+        android:layout_marginTop="13dp"
+        android:layout_toEndOf="@id/textViewLogin"
+        android:minWidth="0dp"
+        android:minHeight="0dp"
+        android:text="Sign In"
+        android:textColor="#660000"
+        android:textAllCaps="false"/>
 
 </RelativeLayout>

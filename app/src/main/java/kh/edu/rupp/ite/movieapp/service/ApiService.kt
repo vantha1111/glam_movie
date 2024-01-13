@@ -1,5 +1,9 @@
 package kh.edu.rupp.ite.movieapp.service
 
+import kh.edu.rupp.ite.movieapp.Model.MainModel
+
+interface ApiService {
+
 import kh.edu.rupp.ite.movieapp.mvc.model.LoginModel
 import kh.edu.rupp.ite.movieapp.mvc.model.RegisterModel
 import okhttp3.ResponseBody
@@ -16,5 +20,6 @@ interface ApiServices {
 
     @POST("auth/login")
     fun login(@Body loginInfo: LoginModel): Call<ResponseBody>
+
 
 }
